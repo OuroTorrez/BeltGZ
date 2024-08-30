@@ -117,7 +117,7 @@ outlines:
           shift: [1.3padX, 0.5padY]
         - ref: beltgz_pausa_ctrl
           shift: [1.3padX, -0.5padY]
-      fillet: 3
+      fillet: 2
   combo_board_keys:
     - name: board
     - operation: subtract
@@ -153,3 +153,13 @@ pcbs:
           ref: beltgz_f9_esc
           rotate: -90
           shift: [0,-5]
+      horizontal_reset:
+        what: EVQPUC
+        params: 
+          side: B
+          from: GND
+          to: RST 
+        where:
+          ref: beltgz_esc_esc
+          shift: [-1, 8.5]
+    
