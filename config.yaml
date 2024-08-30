@@ -1,0 +1,155 @@
+#   -------------------------------------------------------------------------------------------------------------------------
+#     | ESC |  F1 |  F2 |  F3 |  F4 |  F5 |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |SUPR |IMP P|INSER|BLOQD|PAUSA|KNOB |
+#     |  |  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  ?  |  ¿  |BACKS|HOME |BLOQN|  /  |  *  |  -  |
+#     | TAB |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |ENTER| END |  7  |  8  |  9  |  +  |
+#     |MAYUS|  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  Ñ  |  {  |  }  |ENTER|REPAG|  4  |  5  |  6  |  +  |
+#     |SHIFT| < > |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  -  |SHIFT|  UP |AVPAG|  1  |  2  |  3  |ENTER|     
+#     |CTRL | WIN | ALT |      SPACE      |      SPACE      |ALTGR| FN  |CTRL |LEFT |DOWN |RIGHT|     0     |  .  |ENTER|
+#   -------------------------------------------------------------------------------------------------------------------------
+units:
+  keyX: u
+  keyY: u
+  padX: u + 4
+  padY: u + 4
+points:
+  key:
+    width: 1keyX
+    height: 1keyY
+    padding: 1keyX
+    spread: 1keyX
+  zones:
+    beltgz:
+      anchor:
+        shift: [40,-170]
+      columns:
+        esc:
+        f1:
+        f2:
+        f3:
+          rows.ctrl.skip: true
+        f4:
+          rows.ctrl.skip: true
+        f5:
+          rows.ctrl.skip: true
+        f6:
+          rows.ctrl.skip: true
+        f7:
+          rows.ctrl.skip: true
+        f8:
+          rows.ctrl.skip: true
+        f9:
+        f10:
+        f11:
+        f12:
+        supr:
+          rows.tab.skip: true
+          rows.mayus.skip: true
+        pant:
+        inser:
+          rows.ctrl.skip: true
+        bloqd:
+          rows.ctrl.skip: true
+        pausa:
+        knob:
+          rows.tab.skip: true
+          rows.mayus.skip: true
+          rows.shift.skip: true
+          rows.ctrl.skip: true
+      rows:
+        ctrl:
+        shift:
+        mayus:
+        tab:
+        symbol:
+        esc:
+    specials:
+      anchor:
+        shift: [40,-170]
+      columns:
+        space:
+          key:
+            width: 3keyX
+            shift: [4keyX]
+            stab: true
+        space2:
+          key:
+            width: 3keyX
+            shift: [6keyX]
+            stab: true
+        enter:
+          key:
+            height: 2keyX
+            shift: [11keyX, 2.5keyY]
+            stab: true
+        cero:
+          key:
+            width: 2keyX
+            shift: [12.5keyX]
+            stab: true
+        plus:
+          key:
+            height: 2keyX
+            shift: [14keyX, 2.5keyY]
+            stab: true
+        intro:
+          key:
+            height: 2keyX
+            shift: [13keyX, 0.5keyY]
+            stab: true
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      size: [padX, padY]
+  keys:
+    - what: rectangle
+      where: true
+      size: [keyX-0.5, keyY-0.5]
+  board:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: beltgz_esc_ctrl
+          shift: [-0.5padX,-0.5padY]
+        - ref: beltgz_esc_esc
+          shift: [-0.5padX,0.5padY]
+        - ref: beltgz_pausa_esc
+          shift: [1.3padX, 0.5padY]
+        - ref: beltgz_pausa_ctrl
+          shift: [1.3padX, -0.5padY]
+      fillet: 3
+  combo_board_keys:
+    - name: board
+    - operation: subtract
+      name: keys
+pcbs:
+  beltgz:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      mx_hotswap:
+        what: mx
+        where: true
+        params:
+          hotswap: true
+          reverse: false
+          keycaps: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      nice_nano:
+        what: nice_nano
+        params:
+          orientation: up
+        where:
+          ref: beltgz_f9_esc
+          rotate: -90
+          shift: [0,-5]
