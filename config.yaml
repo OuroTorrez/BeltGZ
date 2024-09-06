@@ -17,14 +17,14 @@
 units:
   keyX: u
   keyY: u
-  padX: u + 4
-  padY: u + 4
+  padX: u + 0.5
+  padY: u + 0.5
 points:
   key:
     width: 1keyX
     height: 1keyY
     padding: 1keyX
-    spread: 1keyX
+    spread: 1keyY
   zones:
     beltgz:
       anchor:

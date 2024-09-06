@@ -680,6 +680,10 @@
       },
       {
         "netclass": "Default",
+        "pattern": "P"
+      },
+      {
+        "netclass": "Default",
         "pattern": "RAW"
       },
       {
