@@ -1,10 +1,10 @@
-#   ------------------------------------------------------------------------------------------------------------------------- 19 col - 6 row
-#     | ESC |  F1 |  F2 |  F3 |  F4 |  F5 |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |INSER|IMP P|     |     |     |KNOB |
-#     |  |  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  ?  |  ¿  |SUPR |BLOQD|BLOQN|  /  |  *  |  -  |
-#     | TAB |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |HOME |PAUSA|  7  |  8  |  9  |  +  |
-#     |MAYUS|  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  Ñ  |  {  |  }  | END |REPAG|  4  |  5  |  6  |  +  |
-#     |SHIFT| < > |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  -  |SHIFT|  UP |AVPAG|  1  |  2  |  3  |ENTER|
-#     |CTRL | WIN | ALT | BACKSPACE |   SPACE   |    ENTER  |ALTGR| FN  |CTRL |LEFT |DOWN |RIGHT|     0     |  .  |ENTER|
+#   -------------------------------------------------------------------------------------------------------------------------     19 col - 6 row
+#     | ESC |  F1 |  F2 |  F3 |  F4 |  F5 |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |INSER|IMP P|BLOQN|  /  |  *  |  -  |         
+#     |  |  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  ?  |  ¿  |SUPR |BLOQD|  7  |  8  |  9  |  +  |
+#     | TAB |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |HOME |PAUSA|  4  |  5  |  6  |  +  |
+#     |MAYUS|  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  Ñ  |  {  |  }  | END |REPAG|  1  |  2  |  3  |ENTER|
+#     |SHIFT| < > |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  -  |SHIFT|  UP |AVPAG|     0     |  .  |ENTER|
+#     |CTRL | WIN | ALT | BACKSPACE |   SPACE   |    ENTER  |ALTGR| FN  |CTRL |LEFT |DOWN |RIGHT|                 |KNOB |
 #   -------------------------------------------------------------------------------------------------------------------------
 #   ------------------------------------------------------------------------------------------------------------------------- 
 #     | ESC |  F1 |  F2 |  F3 |  F4 |  F5 |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |SUPR |IMP P|INSER|BLOQD|PAUSA|KNOB |
@@ -17,14 +17,12 @@
 units:
   keyX: u
   keyY: u
-  padX: u + 0.5
-  padY: u + 0.5
+  padX: u + 1
+  padY: u + 1
 points:
   key:
     width: 1keyX
     height: 1keyY
-    padding: 1keyX
-    spread: 1keyY
   zones:
     beltgz:
       anchor:
@@ -50,15 +48,17 @@ points:
         f11:
         f12:
         supr:
-          rows.tab.skip: true
-          rows.mayus.skip: true
         pant:
         inser:
+          rows.shift.skip: true
           rows.ctrl.skip: true
         bloqd:
+          rows.shift.skip: true
           rows.ctrl.skip: true
         pausa:
+          rows.ctrl.skip: true
         knob:
+          rows.symbol.skip: true
           rows.tab.skip: true
           rows.mayus.skip: true
           rows.shift.skip: true
@@ -75,35 +75,35 @@ points:
       anchor:
         shift: [40,-170]
       columns:
+        backspace:
+          key:
+            width: 2keyX
+            shift: [3.5keyX]
+            stab: true
         space:
           key:
-            width: 3keyX
-            shift: [4keyX]
-            stab: true
-        space2:
-          key:
-            width: 3keyX
-            shift: [6keyX]
+            width: 2keyX
+            shift: [4.5keyX]
             stab: true
         enter:
           key:
-            height: 2keyX
-            shift: [11keyX, 2.5keyY]
+            width: 2keyX
+            shift: [5.5keyX]
             stab: true
         cero:
           key:
             width: 2keyX
-            shift: [12.5keyX]
+            shift: [12.5keyX, 1keyY]
             stab: true
         plus:
           key:
             height: 2keyX
-            shift: [14keyX, 2.5keyY]
+            shift: [14keyX, 3.5keyY]
             stab: true
         intro:
           key:
             height: 2keyX
-            shift: [13keyX, 0.5keyY]
+            shift: [13keyX, 1.5keyY]
             stab: true
 outlines:
   raw:
@@ -119,13 +119,13 @@ outlines:
       operation: stack
       points:
         - ref: beltgz_esc_ctrl
-          shift: [-0.5padX,-0.5padY]
+          shift: [-0.8padX, -0.8padY]
         - ref: beltgz_esc_esc
-          shift: [-0.5padX,0.5padY]
-        - ref: beltgz_pausa_esc
-          shift: [1.3padX, 0.5padY]
-        - ref: beltgz_pausa_ctrl
-          shift: [1.3padX, -0.5padY]
+          shift: [-0.8padX, 0.8padY]
+        - ref: beltgz_knob_esc
+          shift: [0.8padX, 0.8padY]
+        - ref: beltgz_pant_ctrl
+          shift: [4.6padX, -0.8padY]
       fillet: 2
   combo_board_keys:
     - name: board
@@ -154,15 +154,15 @@ pcbs:
           to: "{{row_net}}"
         adjust:
           shift: [0, 8]
-          rotate: -90
+          rotate: 0
       nice_nano:
         what: nice_nano
         params:
-          orientation: 
+          orientation: down
         where:
           ref: beltgz_f9_esc
           rotate: -90
-          shift: [0,-5]
+          shift: [0, -3]
       horizontal_reset:
         what: EVQPUC
         params: 
@@ -170,6 +170,5 @@ pcbs:
           from: GND
           to: RST 
         where:
-          ref: beltgz_esc_esc
-          shift: [-1, 8.5]
-    
+          ref: beltgz_f8_esc
+          shift: [0, 13]

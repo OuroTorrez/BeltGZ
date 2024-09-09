@@ -552,6 +552,14 @@
       },
       {
         "netclass": "Default",
+        "pattern": "supr_mayus"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "supr_tab"
+      },
+      {
+        "netclass": "Default",
         "pattern": "supr_symbol"
       },
       {
@@ -584,10 +592,6 @@
       },
       {
         "netclass": "Default",
-        "pattern": "inser_shift"
-      },
-      {
-        "netclass": "Default",
         "pattern": "inser_mayus"
       },
       {
@@ -604,10 +608,6 @@
       },
       {
         "netclass": "Default",
-        "pattern": "bloqd_shift"
-      },
-      {
-        "netclass": "Default",
         "pattern": "bloqd_mayus"
       },
       {
@@ -621,10 +621,6 @@
       {
         "netclass": "Default",
         "pattern": "bloqd_esc"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "pausa_ctrl"
       },
       {
         "netclass": "Default",
@@ -648,19 +644,15 @@
       },
       {
         "netclass": "Default",
-        "pattern": "knob_symbol"
-      },
-      {
-        "netclass": "Default",
         "pattern": "knob_esc"
       },
       {
         "netclass": "Default",
-        "pattern": "space_default"
+        "pattern": "backspace_default"
       },
       {
         "netclass": "Default",
-        "pattern": "space2_default"
+        "pattern": "space_default"
       },
       {
         "netclass": "Default",
